@@ -50,6 +50,7 @@
 
   <!-- Background 1 -->
   <div class="background-1">
+          <div id="guest-name" class="container"></div>
     <div class="container">
       <h1 class="dynamic-title">
         <span style="font-size: 36px; font-weight: bold;">Liansky</span>
@@ -154,6 +155,15 @@
   </div>
 
   <script>
+     function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+const guestName = getQueryParam("to");
+if (guestName) {
+  document.getElementById("guest-name").innerHTML = `<p>Teruntuk <strong>${decodeURIComponent(guestName)}</strong> Dalam suka cita kami</p>`;
+}
     const firebaseConfig = {
       apiKey: "AIzaSyD_XJTed1xlR885PImafVa5dRXlaDtkT4M",
       authDomain: "fauzi-cacha.firebaseapp.com",
